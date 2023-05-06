@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../styles/pages.css'
+import '../styles/page1.css'
 import { FormContext } from '../App';
 import { useContext } from 'react';
 
@@ -32,7 +32,7 @@ function handlePhoneNumberChange(e){
     <>
     <div className='form-ctn'>
       <form id="form" onSubmit={handleSubmit}>
-        <h1>Personal Info</h1>
+        <h2>Personal Info</h2>
         <p>Please provide your name, email address
           and phone number.
         </p>
@@ -50,7 +50,8 @@ function handlePhoneNumberChange(e){
         </div>
         <input type='submit'/>
       </form>
-      <div className='btn-ctn'>
+    </div>
+    <div className='btn-ctn'>
         <Link to="/page2">
           <button form="form" className="next-btn" type="submit" onClick={() => {
             console.log(myContext.email)
@@ -58,7 +59,6 @@ function handlePhoneNumberChange(e){
         </Link>
         <Link></Link>
         </div>
-    </div>
     </>
   )
 }

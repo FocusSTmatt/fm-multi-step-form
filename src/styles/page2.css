@@ -1,0 +1,24 @@
+.form-ctn {
+    color: hsl(213, 96%, 18%);
+}
+
+.plan-ctn {
+    display: flex;
+    padding: 1em;
+    border:2px solid lightgray;
+    margin: 1em;
+    border-radius: 10px;
+    align-items: flex-start;
+}
+
+.plan-ctn img {
+    justify-self: end;
+}
+
+.plan-text {
+    padding-left: 1em;
+}
+
+.plan-text h4, p {
+    padding-bottom: 0.5em;
+}

@@ -12,8 +12,16 @@
 
 .form-ctn {
     background: white;
-
+    margin: 1em;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .input-ctn {
@@ -26,10 +34,8 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    width: 100vw !important;
+    width: 100%;
     background: white;
-    position: absolute !important;
+    position: absolute;
     bottom: 0;
-    margin: 0 !important;
-    
 }
