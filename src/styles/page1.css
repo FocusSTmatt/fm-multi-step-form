@@ -42,6 +42,9 @@ input {
     height: 40px;
     border-radius: 5px;
     border: 2px solid lightgray;
+    padding-left: 1em;
+    font-weight: bold;
+    color: rgb(247, 240, 240);
 }
 
 .btn-ctn {
