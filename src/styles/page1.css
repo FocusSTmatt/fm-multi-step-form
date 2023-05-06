@@ -16,17 +16,32 @@
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
+    position: relative;
+    bottom: 90px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    padding: 2em 1.5em 2em 1.5em;
+}
+
+form h2 {
+    padding-bottom: 0.5em;
+}
+
+form p {
+    padding-bottom: 1.5em;
 }
 
 .input-ctn {
     display: flex;
     flex-direction: column;
+    padding-bottom: 1em;
+}
+
+input {
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid lightgray;
 }
 
 .btn-ctn {

@@ -38,17 +38,16 @@ function handlePhoneNumberChange(e){
         </p>
         <div className='input-ctn'>
           <label>Name</label>
-          <input type="text" onChange={handleNameChange} required/>
+          <input type="text" onChange={handleNameChange} placeholder='e.g Stephen King' required/>
         </div>
         <div className='input-ctn'>
           <label>Email Address</label>
-          <input type="email"onChange={handleEmailChange} required/>
+          <input type="email"onChange={handleEmailChange} placeholder='e.g stephenking@lorem.com' required/>
         </div>
         <div className='input-ctn'>
           <label>Phone Number</label>
-          <input type="number" onChange={handlePhoneNumberChange} required/>
+          <input type="number" onChange={handlePhoneNumberChange} placeholder='e.g. +1 253 567 890' required/>
         </div>
-        <input type='submit'/>
       </form>
     </div>
     <div className='btn-ctn'>

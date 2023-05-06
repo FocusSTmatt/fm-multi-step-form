@@ -32,7 +32,7 @@ root: {
     box-sizing: border-box;
 }
 body {
-    background: gray;
+    background: hsl(217, 100%, 97%);
 }
 nav {
     width: 100%;
@@ -42,7 +42,7 @@ nav {
     background: url(../assets/images/bg-sidebar-mobile.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 200px;
+    height: 175px;
     display: flex;
     justify-content: space-evenly;
     padding: 2em 4em 3em 4em;
@@ -66,7 +66,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid hsl(206, 94%, 87%);
+    border: 1px solid hsl(206, 94%, 87%);
     width: 37px;
     height: 37px;
     border-radius: 50%;
