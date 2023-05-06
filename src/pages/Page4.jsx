@@ -1,11 +1,10 @@
-import React from "react";
-import NavBar from "../components/NavBar";
 import { Link } from "react-router-dom";
 
+
 function Page4(){
-    return (
+  return (
         <>
-        <h1>Page 4</h1>
+        <h1></h1>
         <div className='form-ctn'>
           <form>
             <h1>Personal Info</h1>

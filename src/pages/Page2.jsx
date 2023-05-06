@@ -2,17 +2,16 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import { Link } from "react-router-dom";
 
-function Page2(event){
+function Page2(){
 
-    console.log(event);
+    
     return (
         <>
-        <h1>Page2</h1>
+        <h3>Select Your Plan</h3>
         <div className='form-ctn'>
           <form>
             <h1>Personal Info</h1>
-            <p>Please provide your name, email address
-              and phone number.
+            <p>You have the option of monthly or yearly billing.
             </p>
             <label>Name</label>
             <input type="text"/>
@@ -20,11 +19,13 @@ function Page2(event){
             <input type="email"/>
             <label>Phone Number</label>
             <input type="number"/>
+            <div className='btn-ctn'>
             <Link to="/page3">
-              <input className="next-step" type="submit" value="Next Step" />
+              <input className="next-btn" type="submit" value="Next Step" />
             </Link>
             <Link to="/">Go Back</Link>
-          </form>
+            </div>         
+            </form>
         </div>
         </>
       )
