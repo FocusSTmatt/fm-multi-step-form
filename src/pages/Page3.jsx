@@ -1,31 +1,47 @@
-import React from "react";
-import NavBar from "../components/NavBar";
 import { Link } from "react-router-dom";
+import arcadeIcon from "../assets/images/icon-arcade.svg"
+import advancedIcon from "../assets/images/icon-advanced.svg"
+import proIcon from "../assets/images/icon-pro.svg"
+import { AddOnData } from "../data/AddOnData";
 
 function Page3(){
+  const importAddOnData = AddOnData.map((item, index) => {
     return (
-        <>
-        <h1>Page 3</h1>
-        <div className='form-ctn'>
-          <form>
-            <h1>Personal Info</h1>
-            <p>Please provide your name, email address
-              and phone number.
-            </p>
-            <label>Name</label>
-            <input type="text"/>
-            <label>Email Address</label>
-            <input type="email"/>
-            <label>Phone Number</label>
-            <input type="number"/>
-            <Link to="/page4">
-              <input className="next-step" type="submit" value="Next Step" />
-            </Link>
-            <Link to="/page2">Go Back</Link>
-          </form>
+      <div key={index} className='addOn-ctn'>
+         <input 
+            id={item.name}
+            name={item.name} 
+            type="checkbox"
+            value={item.price}
+          />
+        <div className='addOn-text'>
+          <label htmlFor={item.name}>{item.title}</label>
         </div>
-        </>
-      )
+          
+      </div>
+    )
+  })
+
+
+  return (
+    <>
+    <div className='form-ctn'>
+      <form>
+        <h2>Select your plan</h2>
+        <p>You have the option of monthly or yearly billing.</p>
+        {importAddOnData}
+        
+        </form>
+    </div>
+
+    <div className='btn-ctn'>
+        <Link to="/page3">
+          <input className="next-btn" type="submit" value="Next Step" />
+        </Link>
+        <Link to="/">Go Back</Link>
+        </div>         
+    </>
+  )
 }
 
 export default Page3

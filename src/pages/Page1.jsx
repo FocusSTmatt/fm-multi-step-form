@@ -38,11 +38,11 @@ function handlePhoneNumberChange(e){
         </p>
         <div className='input-ctn'>
           <label>Name</label>
-          <input type="text" onChange={handleNameChange} placeholder='e.g Stephen King' required/>
+          <input type="text" onChange={handleNameChange} placeholder='e.g. Stephen King' required/>
         </div>
         <div className='input-ctn'>
           <label>Email Address</label>
-          <input type="email"onChange={handleEmailChange} placeholder='e.g stephenking@lorem.com' required/>
+          <input type="email"onChange={handleEmailChange} placeholder='e.g. stephenking@lorem.com' required/>
         </div>
         <div className='input-ctn'>
           <label>Phone Number</label>

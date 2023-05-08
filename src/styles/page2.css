@@ -1,12 +1,20 @@
+.checked {
+    color: hsl(213, 96%, 18%);
+}
+
+.unchecked {
+    color: hsl(240, 3%, 71%);
+}
+
 .form-ctn {
     color: hsl(213, 96%, 18%);
 }
 
 .plan-ctn {
     display: flex;
-    padding: 1em;
+    padding: 1em 1em .75em 1em;
     border:2px solid lightgray;
-    margin: 1em;
+    margin-bottom: 1em;
     border-radius: 10px;
     align-items: flex-start;
 }
@@ -21,4 +29,23 @@
 
 .plan-text h4, p {
     padding-bottom: 0.5em;
+}
+
+.switch-ctn {
+    margin: 0 auto;
+    max-width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch {
+    padding: 0 0.5em 0 0.5em;
+}
+
+.btn-ctn2 {
+    display: relavite;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
