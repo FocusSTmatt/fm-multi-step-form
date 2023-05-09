@@ -1,15 +1,4 @@
-@font-face {
-    font-family: ub;
-    src: url(../assets/fonts/Ubuntu-Bold.ttf);
-}
-@font-face {
-    font-family: um;
-    src: url(../assets/fonts/Ubuntu-Medium.ttf);
-}
-@font-face {
-    font-family: ur;
-    src: url(../assets/fonts/Ubuntu-Regular.ttf);
-}
+
 
 .form-ctn {
     background: white;

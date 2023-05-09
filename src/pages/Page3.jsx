@@ -1,45 +1,84 @@
 import { Link } from "react-router-dom";
-import arcadeIcon from "../assets/images/icon-arcade.svg"
-import advancedIcon from "../assets/images/icon-advanced.svg"
-import proIcon from "../assets/images/icon-pro.svg"
-import { AddOnData } from "../data/AddOnData";
+import { useState } from "react";
+import "../styles/page3.css"
+import Checkbox from "@material-ui/core/Checkbox";
 
 function Page3(){
-  const importAddOnData = AddOnData.map((item, index) => {
-    return (
-      <div key={index} className='addOn-ctn'>
-         <input 
-            id={item.name}
-            name={item.name} 
-            type="checkbox"
-            value={item.price}
-          />
-        <div className='addOn-text'>
-          <label htmlFor={item.name}>{item.title}</label>
-        </div>
-          
-      </div>
-    )
-  })
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event) => {
+        setChecked(event.target.checked) 
+  };
 
 
   return (
     <>
     <div className='form-ctn'>
       <form>
-        <h2>Select your plan</h2>
-        <p>You have the option of monthly or yearly billing.</p>
-        {importAddOnData}
+        <h2>Pick add-ons</h2>
+        <p>Add-ons help enhance your gaming experience.</p>
+
+        <div className="addOn-item-ctn ">
+          <Checkbox 
+              color="primary"
+              checked={checked} 
+              onChange={handleChange}
+              inputProps={{'aria-label': 'Online Services'}} 
+              sx={{
+                  borderRadius: 5,
+                }}
+              />
+          <div className='addOn-text'>
+            <h4>Online Services</h4>
+            <p className="addOn-description">Acces to multiplayer games</p>
+          </div>
+          <p className="addOn-price">+10/mo</p>
+        </div>
         
-        </form>
+        <div className="addOn-item-ctn ">
+          <Checkbox 
+              color="primary"
+              checked={checked} 
+              onChange={handleChange}
+              inputProps={{'aria-label': 'Online Services'}} 
+              sx={{
+                  borderRadius: 5,
+                }}
+              />
+          <div className='addOn-text'>
+            <h4>Larger storage</h4>
+            <p className="addOn-description">Extra 1TB of cloud storage</p>
+          </div>
+          <p className="addOn-price">+10/mo</p>
+        </div>
+
+        <div className="addOn-item-ctn ">
+          <Checkbox 
+              color="primary"
+              checked={checked} 
+              onChange={handleChange}
+              inputProps={{'aria-label': 'Online Services'}} 
+              sx={{
+                  borderRadius: 5,
+                }}
+              />
+          <div className='addOn-text'>
+            <h4>Online Services</h4>
+            <p className="addOn-description">Acces to multiplayer games</p>
+          </div>
+          <p className="addOn-price">+10/mo</p>
+        </div>
+
+
+      </form>
     </div>
 
-    <div className='btn-ctn'>
+    {/* <div className='btn-ctn'>
         <Link to="/page3">
           <input className="next-btn" type="submit" value="Next Step" />
         </Link>
         <Link to="/">Go Back</Link>
-        </div>         
+    </div>          */}
     </>
   )
 }
