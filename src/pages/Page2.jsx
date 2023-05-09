@@ -18,9 +18,7 @@ function Page2(event){
    function handleChange() {
     setChecked(!checked)
     console.log(checked)
-    if(checked){
-
-    }
+ 
   }
 
   
@@ -75,7 +73,9 @@ function Page2(event){
         </div>
 
         <div className='btn-ctn'>
-        <Link to="/page3">
+        <Link 
+            to="/page3"
+        >
           <input className="next-btn" type="submit" value="Next Step" />
         </Link>
         <Link to="/">Go Back</Link>
