@@ -2,12 +2,24 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../styles/page3.css"
 import Checkbox from "@material-ui/core/Checkbox";
+import { useSelector } from "react-redux";
 
 function Page3(){
-  const [checked, setChecked] = useState(false);
+  const [serviceChecked, setServiceChecked] = useState(false);
+  const [storageChecked, setStorageChecked] = useState(false);
+  const [profileChecked, setProfileChecked] = useState(false);
 
-  const handleChange = (event) => {
-        setChecked(event.target.checked) 
+  const handleServiceChecked = (event) => {
+        setServiceChecked(event.target.checked)
+        console.log(serviceChecked) 
+  };
+
+  const handleStorageChecked = (event) => {
+        setStorageChecked(event.target.checked) 
+  };
+
+  const handleProfileChecked = (event) => {
+        setProfileChecked(event.target.checked) 
   };
 
 
@@ -21,8 +33,8 @@ function Page3(){
         <div className="addOn-item-ctn ">
           <Checkbox 
               color="primary"
-              checked={checked} 
-              onChange={handleChange}
+              checked={serviceChecked} 
+              onChange={handleServiceChecked}
               inputProps={{'aria-label': 'Online Services'}} 
               sx={{
                   borderRadius: 5,
@@ -38,8 +50,8 @@ function Page3(){
         <div className="addOn-item-ctn ">
           <Checkbox 
               color="primary"
-              checked={checked} 
-              onChange={handleChange}
+              checked={storageChecked} 
+              onChange={handleStorageChecked}
               inputProps={{'aria-label': 'Online Services'}} 
               sx={{
                   borderRadius: 5,
@@ -55,8 +67,8 @@ function Page3(){
         <div className="addOn-item-ctn ">
           <Checkbox 
               color="primary"
-              checked={checked} 
-              onChange={handleChange}
+              checked={profileChecked} 
+              onChange={handleProfileChecked}
               inputProps={{'aria-label': 'Online Services'}} 
               sx={{
                   borderRadius: 5,
@@ -72,13 +84,6 @@ function Page3(){
 
       </form>
     </div>
-
-    {/* <div className='btn-ctn'>
-        <Link to="/page3">
-          <input className="next-btn" type="submit" value="Next Step" />
-        </Link>
-        <Link to="/">Go Back</Link>
-    </div>          */}
     </>
   )
 }

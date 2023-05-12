@@ -3,30 +3,53 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PlanData } from "../data/PlanData"
 import Switch from "react-switch";
+import { useSelector, useDispatch } from "react-redux"
+import { setCart } from "../redux/slices/cartSlice"
 
 
-function Page2(event){
-  console.log(event.target);
+function Page2(){
+  const dispatch = useDispatch();
 
-  function handleClick(event){
-    console.log(event)
+  const [checked, setChecked] = useState(false) 
+  const [isActive, setIsActive] = useState({activeObject: null,})
+
+  function toggleActive(index){
+    setIsActive({ ...isActive, activeObject: PlanData[index]});
   }
-
-    
-    const [checked, setChecked] = useState(false) 
+  function toggleActiveClass(index){
+    if(PlanData[index] === isActive.activeObject){
+      return "plan-ctn-selected"
+    } else {
+      return "plan-ctn"
+    }
+  }
+  
+  // const cart = useSelector((state) => state.getCart.dollarsMonth);
+  // const cart1 = useSelector((state) => state.getCart.dollarsYear);
+  const getChecked = useSelector((state) => state.isChecked.checked);
+  console.log(getChecked)
+  // console.log(cart1);
+  // console.log(cart);
+ 
+  function handleClick(){
+    if(!checked === true){
+      console.log(isActive.activeObject.dollarsPerMonths)
+      dispatch(setCart(isActive.activeObject.dollarsPerMonths))
+    } else {
+      console.log(isActive.activeObject.dollarsPerYear)
+    }
+  }
 
    function handleChange() {
     setChecked(!checked)
-    console.log(checked)
- 
+  console.log(getChecked)
   }
 
-  
   const importedMonthPlanData =  PlanData.map((item, index) => {
     return (
-    <div key={index} className='plan-ctn'>
+    <div id={index} key={index} className={toggleActiveClass(index)} onClick={() => {toggleActive(index)}}>
       <img src={item.icon} alt={item.alt}/>
-      <div onClick={handleClick} className="plan-text">
+      <div className="plan-text">
         <h4>{item.name}</h4>
         <p className="plan-price">${item.dollarsPerMonths}/mo</p>
       </div>
@@ -35,7 +58,7 @@ function Page2(event){
 
   const importedYearPlanData =  PlanData.map((item, index) => {
     return (
-    <div key={index} className='plan-ctn'>
+    <div key={index} className={toggleActiveClass(index)} onClick={() => {toggleActive(index)}}>
       <img src={item.icon} alt={item.alt}/>
       <div onClick={handleClick} className="plan-text">
         <h4>{item.name}</h4>
@@ -71,14 +94,19 @@ function Page2(event){
           </div>
           </form>
         </div>
-
         <div className='btn-ctn'>
-        <Link 
-            to="/page3"
-        >
-          <input className="next-btn" type="submit" value="Next Step" />
-        </Link>
-        <Link to="/">Go Back</Link>
+        <button onClick={() => dispatch({checked: true})}>Test</button>
+          <Link to="/page3">
+            <input 
+                onClick={() => {handleClick()}} 
+                className="next-btn" 
+                type="submit" 
+                value="Next Step" 
+              />
+          </Link>
+          <Link to="/"
+            >Go Back
+          </Link>
         </div> 
         </>
       )

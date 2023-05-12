@@ -49,3 +49,12 @@
     position: absolute;
     bottom: 0;
 }
+
+.plan-ctn-selected {
+    display: flex;
+    padding: 1em 1em .75em 1em;
+    border:2px solid red;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    align-items: flex-start;
+}

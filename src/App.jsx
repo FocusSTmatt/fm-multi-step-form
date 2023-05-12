@@ -1,5 +1,7 @@
 import NavBar from './components/NavBar';
 import {useState, useContext, createContext} from 'react'
+import { Provider } from 'react-redux';
+import {store} from "./store"
 import {BrowserRouter, Route} from "react-router-dom"
 import {Routes} from "react-router-dom"
 import Page1 from './pages/Page1';
@@ -20,12 +22,14 @@ function App() {
      <BrowserRouter>
      <FormContext.Provider value={{name, setName, email, setEmail, phoneNumber, setPhoneNumber}}>
      <NavBar />
-      <Routes>
-        <Route exact path="/" element={<Page1/>}/>
-        <Route path="/Page2" element={<Page2/>}/>
-        <Route path="/Page3" element={<Page3/>}/>
-        <Route path="/Page4" element={<Page4/>}/>
-      </Routes>
+     <Provider store={store} >
+        <Routes>
+          <Route exact path="/" element={<Page1/>}/>
+          <Route path="/Page2" element={<Page2/>}/>
+          <Route path="/Page3" element={<Page3/>}/>
+          <Route path="/Page4" element={<Page4/>}/>
+        </Routes>
+      </Provider>
      </FormContext.Provider>
     </BrowserRouter>
     </>

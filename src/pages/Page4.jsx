@@ -1,27 +1,18 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+
 
 
 function Page4(){
+  const cart = useSelector((state) => state.getCart.dollarsMonth);
   return (
         <>
-        <h1></h1>
         <div className='form-ctn'>
-          <form>
-            <h1>Personal Info</h1>
-            <p>Please provide your name, email address
-              and phone number.
-            </p>
-            <label>Name</label>
-            <input type="text"/>
-            <label>Email Address</label>
-            <input type="email"/>
-            <label>Phone Number</label>
-            <input type="number"/>
-            <Link to="/page4">
-              <input className="next-step" type="submit" value="Confirm" />
-            </Link>
-            <Link to="/page3">Go Back</Link>
-          </form>
+          <h1>{cart}</h1>
+          <h1>test</h1>
+          <h1>test</h1>
+          <h1>test</h1>
         </div>
         </>
       )
