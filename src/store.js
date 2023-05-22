@@ -10,7 +10,7 @@ export const store = configureStore({
     reducer: {
        getMyName: nameSliceReducer,
        getCart: cartSliceReducer,
-       isChecked: checkedSliceReducer,
+       getChecked: checkedSliceReducer,
     }
 
    

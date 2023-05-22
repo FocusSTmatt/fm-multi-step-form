@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    checked: false,
+    checkedState: "",
 }
 
 export const checkedSlice = createSlice({
-    name: "isChecked",
+    name: "getChecked",
     initialState,
     reducers: {
-        setChecked: (state, action) => {
+        setSliceChecked: (state, action) => {
             state.name = action.payload
         }
     }
 })
 
-export const { setChecked } = checkedSlice.actions
+export const { setSliceChecked } = checkedSlice.actions
 
 export default checkedSlice.reducer

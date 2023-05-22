@@ -1,6 +1,6 @@
 import NavBar from './components/NavBar';
-import {useState, useContext, createContext} from 'react'
 import { Provider } from 'react-redux';
+import { RecoilRoot } from 'recoil';
 import {store} from "./store"
 import {BrowserRouter, Route} from "react-router-dom"
 import {Routes} from "react-router-dom"
@@ -9,18 +9,12 @@ import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
 import Page4 from './pages/Page4';
 
-export const FormContext = createContext()
 function App() {
-
- const [name, setName] = useState({name: ''});
- const [email, setEmail] = useState({email: ''});
- const [phoneNumber, setPhoneNumber] = useState({phoneNumber: ''});
-  
 
   return (
     <>
      <BrowserRouter>
-     <FormContext.Provider value={{name, setName, email, setEmail, phoneNumber, setPhoneNumber}}>
+     <RecoilRoot>
      <NavBar />
      <Provider store={store} >
         <Routes>
@@ -30,7 +24,7 @@ function App() {
           <Route path="/Page4" element={<Page4/>}/>
         </Routes>
       </Provider>
-     </FormContext.Provider>
+     </RecoilRoot>
     </BrowserRouter>
     </>
   );

@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../styles/page3.css"
+import { toggleChecked } from "../atoms";
 import Checkbox from "@material-ui/core/Checkbox";
-import { useSelector } from "react-redux";
+import { useRecoilState, useRecoilValue } from 'recoil'
+
 
 function Page3(){
+  const yearOrMonth = useRecoilValue(toggleChecked)
   const [serviceChecked, setServiceChecked] = useState(false);
   const [storageChecked, setStorageChecked] = useState(false);
   const [profileChecked, setProfileChecked] = useState(false);
@@ -80,9 +83,9 @@ function Page3(){
           </div>
           <p className="addOn-price">+10/mo</p>
         </div>
-
-
       </form>
+      <button onClick={() => {
+      }}></button>
     </div>
     </>
   )

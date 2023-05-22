@@ -1,37 +1,37 @@
 import { Link } from 'react-router-dom'
 import '../styles/page1.css'
-import { FormContext } from '../App';
-import { useContext } from 'react';
-
+import { useRecoilState } from 'recoil';
+import { setNameEmailPhoneNumber } from '../atoms';
 
 
 function Home() {
-  const myContext = useContext(FormContext)
-
+  const [formData, setFormData] = useRecoilState(setNameEmailPhoneNumber)
  function handleNameChange(e){
-   myContext.setName({name: e.target.value});
-  // setFormData({name: e.target.value});
+  //  myContext.setName({name: e.target.value});
+  setFormData({name: e.target.value});
  }
 
  function handleEmailChange(e){
-  myContext.setEmail({email: e.target.value});
-  // setFormData({email: e.target.value});
+  // myContext.setEmail({email: e.target.value});
+  setFormData({email: e.target.value});
 }
 
 function handlePhoneNumberChange(e){
-   myContext.setPhoneNumber({phoneNumber: e.target.value});
-  // setFormData({phoneNumber: e.target.value});
+  //  myContext.setPhoneNumber({phoneNumber: e.target.value});
+  setFormData({phoneNumber: e.target.value});
  }
  
  const handleSubmit = (event) => {
   event.preventDefault();
-  console.log(myContext.email)
+  console.log(formData.name)
+  console.log(formData.email)
+  
 }
  
  return (
     <>
     <div className='form-ctn'>
-      <form id="form" onSubmit={handleSubmit}>
+      <form id="form" onSubmit={() => handleSubmit}>
         <h2>Personal Info</h2>
         <p>Please provide your name, email address
           and phone number.
@@ -53,11 +53,12 @@ function handlePhoneNumberChange(e){
     <div className='btn-ctn'>
         <Link to="/page2">
           <button form="form" className="next-btn" type="submit" onClick={() => {
-            console.log(myContext.email)
+            console.log(formData)
           }}>Next Step</button>
         </Link>
         <Link></Link>
         </div>
+        <button onClick={handleSubmit}>Test</button>
     </>
   )
 }

@@ -5,6 +5,9 @@ import { PlanData } from "../data/PlanData"
 import Switch from "react-switch";
 import { useSelector, useDispatch } from "react-redux"
 import { setCart } from "../redux/slices/cartSlice"
+import { setSliceChecked } from "../redux/slices/checkedSlice"
+import { useRecoilState, useRecoilValue } from "recoil";
+import { toggleChecked } from "../atoms";
 
 
 function Page2(){
@@ -12,7 +15,8 @@ function Page2(){
 
   const [checked, setChecked] = useState(false) 
   const [isActive, setIsActive] = useState({activeObject: null,})
-
+  const [isChecked, setIsChecked] = useRecoilState(toggleChecked)
+  
   function toggleActive(index){
     setIsActive({ ...isActive, activeObject: PlanData[index]});
   }
@@ -24,12 +28,6 @@ function Page2(){
     }
   }
   
-  // const cart = useSelector((state) => state.getCart.dollarsMonth);
-  // const cart1 = useSelector((state) => state.getCart.dollarsYear);
-  const getChecked = useSelector((state) => state.isChecked.checked);
-  console.log(getChecked)
-  // console.log(cart1);
-  // console.log(cart);
  
   function handleClick(){
     if(!checked === true){
@@ -42,7 +40,10 @@ function Page2(){
 
    function handleChange() {
     setChecked(!checked)
-  console.log(getChecked)
+    dispatch(setSliceChecked({checkedState: checked}))
+    console.log(checked)
+ 
+ 
   }
 
   const importedMonthPlanData =  PlanData.map((item, index) => {
@@ -95,7 +96,7 @@ function Page2(){
           </form>
         </div>
         <div className='btn-ctn'>
-        <button onClick={() => dispatch({checked: true})}>Test</button>
+        <button onClick={handleChange}>Test</button>
           <Link to="/page3">
             <input 
                 onClick={() => {handleClick()}} 
