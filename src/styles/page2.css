@@ -21,14 +21,17 @@
 
 .plan-ctn img {
     justify-self: end;
+    pointer-events: none;
 }
 
 .plan-text {
     padding-left: 1em;
+    pointer-events: none;
 }
 
 .plan-text h4, p {
     padding-bottom: 0.5em;
+    pointer-events: none;
 }
 
 .switch-ctn {

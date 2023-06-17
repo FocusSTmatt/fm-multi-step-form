@@ -1,91 +1,72 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "../styles/page3.css"
-import { toggleChecked } from "../atoms";
-import Checkbox from "@material-ui/core/Checkbox";
+import { Checkbox } from "@material-ui/core";
+import { toggleSwitch, AddonAtom} from "../atoms";
 import { useRecoilState, useRecoilValue } from 'recoil'
+import {AddOnData} from "../data/AddOnData"
 
 
 function Page3(){
-  const yearOrMonth = useRecoilValue(toggleChecked)
-  const [serviceChecked, setServiceChecked] = useState(false);
-  const [storageChecked, setStorageChecked] = useState(false);
-  const [profileChecked, setProfileChecked] = useState(false);
+  const refArray = ["ref1", "ref2", "ref3"]
+  const onlineServiceRef = useRef(refArray)
+  const isSwitched = useRecoilValue(toggleSwitch);
+  const [addonCheck, setAddonCheck] = useRecoilState(AddonAtom)
+  
 
-  const handleServiceChecked = (event) => {
-        setServiceChecked(event.target.checked)
-        console.log(serviceChecked) 
-  };
-
-  const handleStorageChecked = (event) => {
-        setStorageChecked(event.target.checked) 
-  };
-
-  const handleProfileChecked = (event) => {
-        setProfileChecked(event.target.checked) 
-  };
-
+  
+  function handleChecked(event, isChecked, value){
+      const checkedArray = [...addonCheck];
+      checkedArray[event.target.id] = !checkedArray[event.target.id];
+      setAddonCheck(checkedArray)
+      console.log(addonCheck)
+  }
+    
+   function handleSubmit(e){
+     event.preventDefault();
+    console.log(e.target.checked);
+   }
 
   return (
     <>
     <div className='form-ctn'>
       <form>
-        <h2>Pick add-ons</h2>
-        <p>Add-ons help enhance your gaming experience.</p>
-
-        <div className="addOn-item-ctn ">
-          <Checkbox 
-              color="primary"
-              checked={serviceChecked} 
-              onChange={handleServiceChecked}
-              inputProps={{'aria-label': 'Online Services'}} 
-              sx={{
-                  borderRadius: 5,
-                }}
+        <button onSubmit={(e) => handleSubmit(e)} type="submit">TEST</button>
+      <h2>Pick add-ons</h2>
+      <p>Add-ons help enhance your gaming experience.</p>
+        {AddOnData.map((item, index) => {
+            return (
+            <div className="addOn-item-ctn" key={index}>
+              <div className='addOn-text'>
+              <Checkbox
+                checked={addonCheck[index]}
+                onChange={handleChecked}
+                id={index.toString()}
               />
-          <div className='addOn-text'>
-            <h4>Online Services</h4>
-            <p className="addOn-description">Acces to multiplayer games</p>
+              <h4>{item.name}</h4>
+              <p className="addOn-description">{item.description}</p>
+            </div>
+            <p className="addOn-price">{
+                  !isSwitched ? 
+                  `+${item.priceMonth}/mo` : 
+                  `+${item.priceYear}/yr`
+                }
+            </p>
           </div>
-          <p className="addOn-price">+10/mo</p>
+            )
+        })}
+        <div className='btn-ctn'>
+          <Link 
+            to="/page4"
+            className="next-btn" 
+            type="submit" 
+          > Next Step
+          </Link>
+          <Link to="/page2"
+            >Go Back
+          </Link>
         </div>
-        
-        <div className="addOn-item-ctn ">
-          <Checkbox 
-              color="primary"
-              checked={storageChecked} 
-              onChange={handleStorageChecked}
-              inputProps={{'aria-label': 'Online Services'}} 
-              sx={{
-                  borderRadius: 5,
-                }}
-              />
-          <div className='addOn-text'>
-            <h4>Larger storage</h4>
-            <p className="addOn-description">Extra 1TB of cloud storage</p>
-          </div>
-          <p className="addOn-price">+10/mo</p>
-        </div>
-
-        <div className="addOn-item-ctn ">
-          <Checkbox 
-              color="primary"
-              checked={profileChecked} 
-              onChange={handleProfileChecked}
-              inputProps={{'aria-label': 'Online Services'}} 
-              sx={{
-                  borderRadius: 5,
-                }}
-              />
-          <div className='addOn-text'>
-            <h4>Online Services</h4>
-            <p className="addOn-description">Acces to multiplayer games</p>
-          </div>
-          <p className="addOn-price">+10/mo</p>
-        </div>
-      </form>
-      <button onClick={() => {
-      }}></button>
+      </form>  
     </div>
     </>
   )

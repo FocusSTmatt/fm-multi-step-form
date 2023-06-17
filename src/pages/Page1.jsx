@@ -21,13 +21,10 @@ function handlePhoneNumberChange(e){
   setFormData({phoneNumber: e.target.value});
  }
  
- const handleSubmit = (event) => {
-  event.preventDefault();
-  console.log(formData.name)
-  console.log(formData.email)
-  
-}
- 
+ function handleSubmit(){
+
+ }
+
  return (
     <>
     <div className='form-ctn'>
@@ -48,17 +45,15 @@ function handlePhoneNumberChange(e){
           <label>Phone Number</label>
           <input type="number" onChange={handlePhoneNumberChange} placeholder='e.g. +1 253 567 890' required/>
         </div>
+        <div className='btn-ctn'>
+          <Link to="/page2">
+            <button form="form" className="next-btn" type="submit" onClick={() => {
+              console.log(formData)
+            }}>Next Step</button>
+          </Link>
+        </div>
       </form>
     </div>
-    <div className='btn-ctn'>
-        <Link to="/page2">
-          <button form="form" className="next-btn" type="submit" onClick={() => {
-            console.log(formData)
-          }}>Next Step</button>
-        </Link>
-        <Link></Link>
-        </div>
-        <button onClick={handleSubmit}>Test</button>
     </>
   )
 }

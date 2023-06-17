@@ -1,0 +1,15 @@
+
+
+
+
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
+}
+
+.plan-name-change-ctn {
+    display: flex;
+    flex-direction: column;
+}
