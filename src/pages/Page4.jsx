@@ -13,9 +13,6 @@ function Page4() {
   const personalInfo = useRecoilValue(setNameEmailPhoneNumber);
   const [total, setTotal] = useState("")
 
-
-  
-
   useEffect(() => {
     let plan = Number(planCart.price);
     let addon1 = Number(getTheTotal(addonCheck[0], 10, 1))
@@ -34,9 +31,6 @@ function Page4() {
       console.log(totalArr)
       return totalArr  
   }
-
-
-
 
   return (
     <>
