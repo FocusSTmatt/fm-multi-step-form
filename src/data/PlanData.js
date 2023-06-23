@@ -25,7 +25,7 @@ export const PlanData = [
          "alt": "small game pad on icon",
          "name": "Pro",
          "dollarsPerMonths": 15,
-         "dollarsPerYear": 90,
+         "dollarsPerYear": 150,
       }
 ]
 

@@ -22,28 +22,28 @@ function Page3(){
       console.log(addonCheck)
   }
     
-   function handleSubmit(e){
-     event.preventDefault();
-    console.log(e.target.checked);
-   }
-
   return (
     <>
-    <div className='form-ctn'>
-      <form>
-        <button onSubmit={(e) => handleSubmit(e)} type="submit">TEST</button>
-      <h2>Pick add-ons</h2>
-      <p>Add-ons help enhance your gaming experience.</p>
+    <div className='addon-ctn'>
+      <h2 className="addon-title">Pick add-ons</h2>
+      <p className="addon-description">Add-ons help enhance your gaming experience.</p>
         {AddOnData.map((item, index) => {
             return (
             <div className="addOn-item-ctn" key={index}>
-              <div className='addOn-text'>
               <Checkbox
                 checked={addonCheck[index]}
                 onChange={handleChecked}
                 id={index.toString()}
+                style={{
+                  color: "hsl(243, 100%, 62%)",
+                  borderRadius: "9px",
+                  transform: "scale(1.1)",
+                  padding: "0 0 0 0.5em",
+                  alignSelf: "center"
+                }}
               />
-              <h4>{item.name}</h4>
+              <div className='addOn-text'>
+              <h4>{item.title}</h4>
               <p className="addOn-description">{item.description}</p>
             </div>
             <p className="addOn-price">{
@@ -55,19 +55,20 @@ function Page3(){
           </div>
             )
         })}
-        <div className='btn-ctn'>
-          <Link 
-            to="/page4"
-            className="next-btn" 
-            type="submit" 
-          > Next Step
-          </Link>
-          <Link to="/page2"
-            >Go Back
-          </Link>
-        </div>
-      </form>  
     </div>
+    <div className='btn-ctn'>
+            <Link to="/page4">
+              <input 
+                  className="next-btn"
+                  id="addon-btn" 
+                  type="submit" 
+                  value="Next Step" 
+                />
+            </Link>
+            <Link className="addon-back-btn" to="/page2"
+              >Go Back
+            </Link>
+            </div> 
     </>
   )
 }

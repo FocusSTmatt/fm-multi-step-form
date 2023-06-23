@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PlanData } from "../data/PlanData"
 import Switch from "react-switch";
+import MediaQuery from "react-responsive";
 import { setPlan, toggleSwitch, selectedActivePlan } from "../atoms";
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -39,12 +40,6 @@ function Page2(){
   }
 
   function toggleActiveClass(index){
-    // if(PlanData[index] === isActive.activeObject){
-    //   return "plan-ctn-selected"
-    // } else {
-    //   return "plan-ctn"
-    // }
-
     if(PlanData[index] === activePlan.activeObject){
       return "plan-ctn-selected"
     } else {
@@ -68,33 +63,33 @@ function Page2(){
     
   return (
         <>
-        <div className='form-ctn'>
-          {/* <button>TEST CHECKED</button> */}
-          <form>
-            <h2>Select your plan</h2>
-            <p>You have the option of monthly or yearly billing.</p>
+        <div className='plan-main-ctn'>  
+            <h2 className="plan-name">Select your plan</h2>
+            <p className="plan-description">You have the option of monthly or yearly billing.</p>
+            <div id='outer-plan-ctn'>
             {PlanData.map((item, index) => {
               return (
-                  <div
-                    className={toggleActiveClass(index)} 
-                    id={index}
-                    key={index} 
-                    onClick={(e) => handlePlanSelect(e, index)}
+                <div
+                  className={toggleActiveClass(index)} 
+                  id={index}
+                  key={index} 
+                  onClick={(e) => handlePlanSelect(e, index)}
                   >
-                    <img src={item.icon} alt={item.alt}/>
-                    <div className="plan-text">
-                      <h4>{item.name}</h4>
-                      <p 
-                        className="plan-price">{
-                          isSwitchToggled ? 
-                          `${item.dollarsPerYear}/yr` : 
-                          `${item.dollarsPerMonths}/mo`
-                          }
-                      </p>
-                      {isSwitchToggled && <p>2 months free</p>}
-                    </div>
+                  <img src={item.icon} alt={item.alt}/>
+                  <div className="plan-text">
+                    <h4>{item.name}</h4>
+                    <p 
+                      className="plan-price">{
+                        isSwitchToggled ? 
+                        `${item.dollarsPerYear}/yr` : 
+                        `${item.dollarsPerMonths}/mo`
+                        }
+                    </p>
+                    {isSwitchToggled && <p className="twoMonthsFree">2 months free</p>}
                   </div>
+                </div>
             )})}
+            </div>
             <div className="switch-ctn">
             <span className={isSwitchToggled ? "unchecked" : "checked"}>Monthly</span>
             <Switch 
@@ -111,21 +106,21 @@ function Page2(){
             />
             <span className={isSwitchToggled ? "checked" : "unchecked"}>Yearly</span>
           </div>
-          <div className='btn-ctn'>
-            <Link to={activePlan.activeObject ? "/page3" : "" }>
+        </div>
+        <div className='btn-ctn'>
+            <Link className="plan-btn" to={activePlan.activeObject ? "/page3" : "" }>
               <input 
-                  onClick={() => {handleClick()}} 
+                  onClick={() => {handleClick()}}
+                  id="plan-btn" 
                   className="next-btn" 
                   type="submit" 
                   value="Next Step" 
                 />
             </Link>
-            <Link to="/"
+            <Link className="go-back-btn" to="/"
               >Go Back
             </Link>
-            </div>
-          </form>
-        </div> 
+            </div> 
         </>
       )
 }

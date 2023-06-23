@@ -69,5 +69,5 @@ export const CustomizableProfile = atom({
 
 export const setNameEmailPhoneNumber = atom({
     key: 'setNameEmailPhoneNumber',
-    default: []
+    default: {name: null, email: null, phoneNumber: null}
 });

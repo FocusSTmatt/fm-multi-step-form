@@ -3,27 +3,28 @@
 .form-ctn {
     background: white;
     margin: 1em;
+    padding: 1em;
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
     position: relative;
     bottom: 90px;
-}
+    max-height: 400px;
+    margin-bottom: 6.5em;
+} 
 
-form {
-    padding: 2em 1.5em 0 1.5em;
-}
-
-form h2 {
+.personal-info-title {
     font-family: um;
-    font-size: 22px;
-    padding-bottom: 0.5em;
+    font-size: 23px;
+    padding: 0;
     letter-spacing: 1px;
     font-weight: bold;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
-form > p {
-    padding-bottom: 1.5em;
+.personal-info-description {
+    padding-bottom: 1.2em;
     color: hsl(240, 3%, 71%);
     margin-right: 40px;
     line-height: 1.4;
@@ -43,10 +44,17 @@ label {
 
 input {
     height: 40px;
-    border-radius: 5px;
-    border: 2px solid rgb(238, 232, 232);
+    border-radius: 8px;
+    border: 1px solid hsl(240, 10%, 92%);
     padding-left: 1em;
     font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+input:focus {
+    border: 1px solid rgb(91, 36, 91) !important;
+
 }
 
 ::placeholder {
@@ -64,7 +72,7 @@ input {
     bottom: 0;
 }
 
-.next-btn {
+.info-submit-btn {
     font-family: ur;
     font-weight: lighter;
     padding: 0;
@@ -77,9 +85,72 @@ input {
     outline: none;
     border-radius: 5px;
     font-size: 16px;
+    cursor: pointer;
+}
+.info-submit-btn:hover {
+    background: hsl(213, 84%, 35%);
 }
 .btn-ctn a:nth-of-type(2){
     color: hsl(240, 3%, 71%);
     font-size: 16px;
     margin-left: 1em;
+}
+
+a.go-back-btn:hover {
+    color:hsl(213, 96%, 18%);
+}
+
+.error1, .error2, .error3 {
+    font-size: 10px;
+    position: absolute;
+    color: red;
+}
+.error1 {
+    left: 216px;
+}
+
+.error2 {
+    left: 215px;
+    
+}
+
+.error3 {
+    left: 176px;
+    white-space: nowrap;
+   
+}
+
+@media screen and (min-width: 900px) {
+    input {
+        height: 43px;
+    }
+   
+    #name-btn {
+        position: absolute;
+        width: 500px;
+        background: white;
+        bottom: 10px;
+        right: 55px;
+        margin: auto;
+    }
+
+    .personal-info-title {
+        font-size: 29px;
+        padding-bottom: 0.2em;
+    }
+
+    #info-description {
+        font-size: 15px;
+        width: 450px;
+        padding-bottom: 2em;
+    }
+    form {
+        width: 420px;
+    }
+    .form-ctn {
+        position: relative;
+        top: 10px;
+        right: 45px;
+        width: 350px;
+    }
 }

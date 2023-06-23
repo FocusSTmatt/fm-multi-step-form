@@ -8,6 +8,28 @@
     color: rgb(255, 106, 0);
   }
 
+  .addon-ctn {
+    display: flex;
+    flex-direction: column;
+    padding: 1.3em;
+    /* OLD CODE ABOVE */
+    background: white;
+    margin: 1em;
+    margin-bottom: 7em;
+    position: relative;
+    bottom: 90px;
+
+  }
+ .addon-title {
+    padding: 0.5em 0 0.5em 0;
+}
+
+.addon-description {
+    color: hsl(240, 3%, 71%);
+    padding-bottom: 1.5em;
+    line-height: 1.5;
+}
+
 .addOn-form {
     padding: 0;
     display: flex;
@@ -19,40 +41,77 @@
     border-radius: 10px;
     margin-bottom: 0.75em;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    padding: 1em 0.5em 1em 0.5em;
-}
-.unchecked {
-    font-size: 25px;
-}
-.checked {
-   font-size: 25px;
-   align-self: left;
-   color: hsl(243, 100%, 62%) !important;
+    padding-top: 0.3em;
+    height: 68px;
+    padding-bottom: 0.3em;
 }
 
-input:checked {
-    color: hsl(243, 100%, 62%);
-    background: hsl(243, 100%, 62%);
+div.addOn-text {
+    padding-left: 1em;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.addOn-text label {
-    color: hsl(213, 96%, 18%);
-    font-size: 16px;
-    font-family: um;
+.addOn-item-ctn h4 {
+    font-size: 14px;
 }
 
 .addOn-text p {
     color: hsl(240, 3%, 71%);
+    /* padding-top: 0.2em; */
+    font-size: 13px;
+    white-space: nowrap;
     padding-top: 0.2em;
-    font-size: 14px;
 }
 
-.checkboxChecked {
-    background: red;
+.addOn-price {
+    padding-right: 1.2em;
+    font-size: 13px;
+    margin-left: auto;
+    color: hsl(243, 100%, 62%);
+    position: relative;
+    top: 2px;
 }
 
-.boxChecked {
-    background: blue;
+#addon-btn {
+    cursor: pointer;
+}
+#addon-btn:hover {
+    background: hsl(213, 84%, 35%) !important;
+}
+
+a.go-back-btn:hover {
+    color:hsl(213, 96%, 18%);
+}
+
+@media screen and (min-width: 900px) {
+    .addon-ctn {
+        position: relative;
+        bottom: 10px;
+        right: 30px;
+    }
+    .addon-ctn h2 {
+        font-size: 29px;
+        padding-bottom: 0;
+    }
+    
+    .addOn-item-ctn {
+        width: 425px;
+        position: relative;
+        right: 10px;
+    }
+    .addon-back-btn {
+        position: relative;
+        left: 15px;
+    }
+
+    #addon-btn {
+        position: relative;
+        bottom: 5px;
+        right: 2px;
+    }
+    
 }

@@ -1,9 +1,52 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+/* - Marine blue: hsl(213, 96%, 18%)
+- Purplish blue: hsl(243, 100%, 62%)
+- Pastel blue: hsl(228, 100%, 84%)
+- Light blue: hsl(206, 94%, 87%)
+- Strawberry red: hsl(354, 84%, 57%)
+
+### Neutral
+
+- Cool gray: hsl(231, 11%, 63%)
+- Light gray: hsl(229, 24%, 87%)
+- Magnolia: hsl(217, 100%, 97%)
+- Alabaster: hsl(231, 100%, 99%)
+- White: hsl(0, 0%, 100%) */
+
+*, body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 body {
     background: #262626;
+}
+
+.outter-ctn {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    background: hsl(217, 100%, 97%);
+    width: 375px;
+    position: relative;
+}
+
+@media screen and (min-width: 900px) {
+
+    .App {
+        display: flex;
+        width: 840px;
+        height: 515px;
+        background: white;
+        border-radius: 8px;
+        padding: 0.6em;
+        padding-left: 0;
+    }
 }
