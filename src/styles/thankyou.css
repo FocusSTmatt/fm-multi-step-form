@@ -1,0 +1,49 @@
+.ThankYou {
+    text-align: center;
+    margin: 1em;
+    width: 345px;
+    background: hsl(231, 100%, 99%);
+    position: relative;
+    bottom: 90px;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 6em;
+}
+
+.ThankYou img {
+    margin-bottom: 1em;
+    margin-top: 4em;
+}
+
+.ThankYou h1 {
+    color: hsl(213, 96%, 18%);
+    margin-bottom: 0.5em;
+    font-size: 27px;
+}
+
+.ThankYou p {
+    color: hsl(232, 5%, 69%);
+    line-height: 1.5;
+    width: 320px;
+    padding-bottom: 4em;
+    font-size: 17px;
+}
+
+.icon-checkmark {
+    width: 60px;
+    height: 60px;
+}
+
+@media screen and (min-width: 900px) {
+    .ThankYou {
+        background: white;
+        width: 500px;
+        position: relative;
+        top: 50px;
+        right: 17px;
+    }
+    .ThankYou p {
+        width: 100%;
+        font-size: 16px;
+    }
+}

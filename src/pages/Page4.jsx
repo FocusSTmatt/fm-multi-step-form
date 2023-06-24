@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
-import { AddonAtom, CustomizableProfile, LargerStorage, OnlineServices, setNameEmailPhoneNumber, setPlan, toggleSwitch } from "../atoms";
+import { AddonAtom, setNameEmailPhoneNumber, setPlan, toggleSwitch } from "../atoms";
 import "../styles/page4.css"
+import ThankYou from "../components/ThankYou";
 
 
 
@@ -10,6 +11,7 @@ function Page4() {
   const addonCheck = useRecoilValue(AddonAtom)
   const planCart = useRecoilValue(setPlan);
   const isSwitched = useRecoilValue(toggleSwitch);
+  const [isConfirmed, setIsConfirmed] = useState(false);
   const personalInfo = useRecoilValue(setNameEmailPhoneNumber);
   const [total, setTotal] = useState("")
 
@@ -31,10 +33,15 @@ function Page4() {
       console.log(totalArr)
       return totalArr  
   }
+  function handleClick(){
+     if(planCart){
+      setIsConfirmed(!isConfirmed)
+  }
+} 
 
   return (
-    <>
-      <div className='cart-ctn'>
+    <div>
+      {!isConfirmed && <div className='cart-ctn'>
         <h1>{personalInfo.email}</h1>
         <h2>Finishing up</h2>
         <h5>Double-check everything looks OK before confirming</h5>
@@ -67,21 +74,21 @@ function Page4() {
           <p>Total (per {isSwitched ? "year" : "month"})</p>
           <p className="total-price">+${total}/{isSwitched ? "yr" : "mo"}</p>
         </div>
-      </div>
-      <div className='btn-ctn'>
-          <Link to="/page3">
+      </div>}
+      {!isConfirmed && <div className='btn-ctn'>
             <input
               id="cart-btn"
               className="next-btn"
               type="submit"
               value="Confirm"
+              onClick={handleClick}
             />
-          </Link>
           <Link className="cart-go-back-btn"to="/page3"
           >Go Back
           </Link>
-        </div>
-    </>
+        </div>}
+        {isConfirmed && <ThankYou />}
+    </div>
   )
 }
 

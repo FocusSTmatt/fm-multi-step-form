@@ -123,7 +123,7 @@ a.go-back-btn:hover {
 
 @media screen and (min-width: 900px) {
     .cart-ctn {
-        width: 525px;
+        width: 475px;
         position: relative;
         right: 50px;
         margin: 0;
