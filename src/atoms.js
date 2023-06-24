@@ -15,21 +15,6 @@ export const AddonAtom = atom({
     default: [false, false, false],
 });
 
-// export const OnlineServicesCheck = atom({
-//     key: 'OnlineServicesCheck',
-//     default: false,
-// });
-
-// export const LargerStorageCheck = atom({
-//     key: 'LargerStorageCheck',
-//     default: false,
-// });
-
-// export const CustomizableProfileCheck = atom({
-//     key: 'CustomizableProfileCheck',
-//     default: false,
-// });
-
 export const setPlan = atom({
     key: 'addonService',
     default: {

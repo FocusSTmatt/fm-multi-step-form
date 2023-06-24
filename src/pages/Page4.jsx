@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
-import { AddonAtom, setNameEmailPhoneNumber, setPlan, toggleSwitch } from "../atoms";
+import { AddonAtom, selectedActivePlan, setPlan, toggleSwitch } from "../atoms";
 import "../styles/page4.css"
 import ThankYou from "../components/ThankYou";
 
@@ -12,7 +12,7 @@ function Page4() {
   const planCart = useRecoilValue(setPlan);
   const isSwitched = useRecoilValue(toggleSwitch);
   const [isConfirmed, setIsConfirmed] = useState(false);
-  const personalInfo = useRecoilValue(setNameEmailPhoneNumber);
+  const isPlanActive = useRecoilValue(selectedActivePlan);
   const [total, setTotal] = useState("")
 
   useEffect(() => {
@@ -20,9 +20,7 @@ function Page4() {
     let addon1 = Number(getTheTotal(addonCheck[0], 10, 1))
     let addon2 = Number(getTheTotal(addonCheck[1], 20, 2))
     let addon3 = Number(getTheTotal(addonCheck[2], 30, 3))
-    console.log(addon1 + addon2 + addon3 + plan)
     setTotal(addon1 + addon2 + addon3 + plan)
-    console.log(total)
   }, [total])
   
   function getTheTotal(arrItem, num1, num2){
@@ -30,11 +28,10 @@ function Page4() {
       if(arrItem){
         isSwitched ? totalArr.push(+num1) : totalArr.push(+num2)
       } 
-      console.log(totalArr)
       return totalArr  
   }
   function handleClick(){
-     if(planCart){
+     if(isPlanActive.activeObject){
       setIsConfirmed(!isConfirmed)
   }
 } 
@@ -42,7 +39,6 @@ function Page4() {
   return (
     <div>
       {!isConfirmed && <div className='cart-ctn'>
-        <h1>{personalInfo.email}</h1>
         <h2>Finishing up</h2>
         <h5>Double-check everything looks OK before confirming</h5>
         <div className="cart">

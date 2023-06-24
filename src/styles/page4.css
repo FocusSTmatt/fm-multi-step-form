@@ -113,7 +113,12 @@ h2 {
     font-weight: 700;
 }
 
-a.go-back-btn:hover {
+.cart-go-back-btn {
+    color:hsl(231, 11%, 63%);
+    font-size: 16px;
+}
+
+.cart-go-back-btn:hover {
     color:hsl(213, 96%, 18%);
 }
 
@@ -156,7 +161,7 @@ a.go-back-btn:hover {
     }
     .cart-go-back-btn {
         position: relative;
-        left: 20px;
+        left: 30px;
     }
 
     #cart-btn {

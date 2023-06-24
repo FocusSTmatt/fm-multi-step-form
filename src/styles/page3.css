@@ -82,8 +82,10 @@ div.addOn-text {
 #addon-btn:hover {
     background: hsl(213, 84%, 35%) !important;
 }
-
-a.go-back-btn:hover {
+.addon-back-btn {
+    margin-left: 0;
+}
+.addon-back-btn:hover {
     color:hsl(213, 96%, 18%);
 }
 
