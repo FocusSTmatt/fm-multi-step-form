@@ -82,8 +82,7 @@ a {
         display: flex;
         flex-direction: column;
         padding: 2em 1.8em;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 10px;
+        border-radius: 10px;
     }
 
     .side-bar-items {
