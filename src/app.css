@@ -27,10 +27,10 @@ body {
 @media screen and (min-width: 900px) {
     body {
         background: hsl(217, 100%, 97%);
-        box-shadow: 0px 0px 1px black;
     }
-
+    
     .App {
+        box-shadow: 5px 10px 18px #e7e6e6;
         display: flex;
         width: 840px;
         height: 515px;
