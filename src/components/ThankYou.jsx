@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/thankyou.css'
 import iconCheckmark from '../assets/images/icon-thank-you.svg'
 

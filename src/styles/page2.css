@@ -136,6 +136,7 @@ a.go-back-btn {
 a.go-back-btn:hover {
     color:hsl(213, 96%, 18%);
 }
+
 #plan-btn:hover {
     background: hsl(213, 84%, 35%) !important;
 }
@@ -151,6 +152,7 @@ a.go-back-btn:hover {
         width: 450px;
         padding-bottom: 1.5em;
     }
+
     .btn-ctn {
         position: absolute;
         width: 500px;
@@ -159,6 +161,7 @@ a.go-back-btn:hover {
         right: 65px;
         margin: auto;
     }
+
     .plan-main-ctn {
         width: 700px;
         position: relative;
@@ -182,15 +185,14 @@ a.go-back-btn:hover {
         justify-content: space-between;
         flex-direction: column;
     }
+
     .plan-text {
         padding: 0;
         padding-bottom: 0.3em;
     }
+
     .plan-text h4 {
         padding-bottom: 0.2em;
-        
-    }
-    .twoMonthsFree {
     }
 
     div.switch-ctn {
@@ -205,6 +207,7 @@ a.go-back-btn:hover {
         font-size: 14px;
         font-weight: 600;
     }
+
     #plan-btn {
         position: relative;
         bottom: 5px;
@@ -226,9 +229,5 @@ a.go-back-btn:hover {
         margin-bottom: 0.8em;
         align-items: flex-start;
         border-radius: 10px;
-    }
-
-    .plan-ctn {
-        
     }
 }

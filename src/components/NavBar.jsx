@@ -1,11 +1,10 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom';
 import "../styles/navbar.css"
-import MediaQuery from 'react-responsive'
 
 const NavBar = () => {
   return (
     <nav>
+      
       <div className='top-bar'>
         <NavLink
           to="/"
@@ -56,7 +55,6 @@ const NavBar = () => {
         </NavLink>
       </div>
 
-    
         <div id="side-bar" className='side-bar'>
           <div className='side-bar-items'>
             <NavLink
@@ -131,7 +129,6 @@ const NavBar = () => {
           </div>
 
         </div>
-      
     </nav>
   )
 }

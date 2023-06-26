@@ -145,20 +145,20 @@ h2 {
         right: 5px;
         bottom: 5px;
     }
+
     .cart-ctn h5 {
         padding-bottom: 1.5em;
     }
+
     .accent-line {
         width: 400px;
         top: 195px;
-        
     }
-    .cart-item {
-        
-    }
+
     .cart {
         padding: 0;
     }
+
     .cart-go-back-btn {
         position: relative;
         left: 30px;
@@ -169,5 +169,4 @@ h2 {
         bottom: 5px;
         right: 2px;
     }
-
 }    

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
 import "../styles/page3.css"
 import { Checkbox } from "@material-ui/core";
 import { toggleSwitch, AddonAtom} from "../atoms";
@@ -8,14 +7,12 @@ import {AddOnData} from "../data/AddOnData"
 
 
 function Page3(){
-  const refArray = ["ref1", "ref2", "ref3"]
-  const onlineServiceRef = useRef(refArray)
   const isSwitched = useRecoilValue(toggleSwitch);
   const [addonCheck, setAddonCheck] = useRecoilState(AddonAtom)
   
 
   
-  function handleChecked(event, isChecked, value){
+  function handleChecked(event){
       const checkedArray = [...addonCheck];
       checkedArray[event.target.id] = !checkedArray[event.target.id];
       setAddonCheck(checkedArray)
@@ -56,19 +53,21 @@ function Page3(){
             )
         })}
     </div>
-    <div className='btn-ctn'>
-            <Link to="/page4">
-              <input 
-                  className="next-btn"
-                  id="addon-btn" 
-                  type="submit" 
-                  value="Next Step" 
-                />
-            </Link>
-            <Link className="addon-back-btn" to="/page2"
-              >Go Back
-            </Link>
-            </div> 
+    <div 
+      className='btn-ctn'
+    >
+        <Link to="/page4">
+          <input 
+              className="next-btn"
+              id="addon-btn" 
+              type="submit" 
+              value="Next Step" 
+            />
+        </Link>
+        <Link className="addon-back-btn" to="/page2"
+          >Go Back
+        </Link>
+      </div> 
     </>
   )
 }

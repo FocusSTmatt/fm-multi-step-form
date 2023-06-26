@@ -1,14 +1,4 @@
-/* my-style.css */
-
-:root {
-    --mdc-theme-primary: #5f0ff3;
-    --mdc-theme-secondary: #feeae6;
-  }
-  .MuiCheckbox-colorPrimary {
-    color: rgb(255, 106, 0);
-  }
-
-  .addon-ctn {
+.addon-ctn {
     display: flex;
     flex-direction: column;
     padding: 1.3em;
@@ -19,8 +9,9 @@
     position: relative;
     bottom: 90px;
 
-  }
- .addon-title {
+}
+
+.addon-title {
     padding: 0.5em 0 0.5em 0;
 }
 
@@ -61,7 +52,6 @@ div.addOn-text {
 
 .addOn-text p {
     color: hsl(240, 3%, 71%);
-    /* padding-top: 0.2em; */
     font-size: 13px;
     white-space: nowrap;
     padding-top: 0.2em;
@@ -79,12 +69,15 @@ div.addOn-text {
 #addon-btn {
     cursor: pointer;
 }
+
 #addon-btn:hover {
     background: hsl(213, 84%, 35%) !important;
 }
+
 .addon-back-btn {
     margin-left: 0;
 }
+
 .addon-back-btn:hover {
     color:hsl(213, 96%, 18%);
 }

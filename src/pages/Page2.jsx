@@ -1,26 +1,23 @@
 import "../styles/page2.css"
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PlanData } from "../data/PlanData"
 import Switch from "react-switch";
-import MediaQuery from "react-responsive";
 import { setPlan, toggleSwitch, selectedActivePlan } from "../atoms";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 
 function Page2(){
-  const [isActive, setIsActive] = useState({isActive: null})
   const [selectedPlan, setSelectedPlan] = useRecoilState(setPlan)
   const [isSwitchToggled, setSwitchToggled] = useRecoilState(toggleSwitch)
   const [activePlan, setActivePlan] = useRecoilState(selectedActivePlan)
   
   function handlePlanSelect(e, index){
     toggleActive(index)
-   if(e.target.id === "0" && isSwitchToggled){
+  if(e.target.id === "0" && isSwitchToggled){
     setSelectedPlan({name: "Arcade", terms: "yr", price: "90" })
   } else if(e.target.id === "0" && !isSwitchToggled) {
-     setSelectedPlan({name: "Arcade", terms: "mo", price: "9" })
-   } else if(e.target.id === "1" && isSwitchToggled) {
+    setSelectedPlan({name: "Arcade", terms: "mo", price: "9" })
+  } else if(e.target.id === "1" && isSwitchToggled) {
     setSelectedPlan({name: "Advanced", terms: "yr", price: "120" })
   } else if(e.target.id === "1" && !isSwitchToggled) {
     setSelectedPlan({name: "Advanced", terms: "mo", price: "12" })
@@ -29,14 +26,10 @@ function Page2(){
   } else if(e.target.id === "2" && !isSwitchToggled) {
     setSelectedPlan({name: "Pro", terms: "mo", price: "15" })
   }
-  }
+}
   
   function toggleActive(index){
-    // setIsActive({ ...isActive, activeObject: PlanData[index]});
     setActivePlan({ ...activePlan, activeObject: PlanData[index]});
-    // console.log(isActive.activeObject)
-    console.log(activePlan)
-   
   }
 
   function toggleActiveClass(index){
@@ -47,22 +40,12 @@ function Page2(){
     }
   }
   
-  function handleClick(id){
-    console.log(isActive.activeObject)
-    // if(isActive.activeObject.isActive != null){
-    //   setSwitchToggled(!isSwitchToggled)
-    // }
-    // console.log(isSwitchToggled)
-    }
-  
-
-   function handleChange() {
+  function handleChange() {
     setSwitchToggled(!isSwitchToggled)
-    console.log(isSwitchToggled)
   }
     
   return (
-        <>
+      <>
         <div className='plan-main-ctn'>  
             <h2 className="plan-name">Select your plan</h2>
             <p className="plan-description">You have the option of monthly or yearly billing.</p>
@@ -110,7 +93,6 @@ function Page2(){
         <div className='btn-ctn'>
             <Link className="plan-btn" to={activePlan.activeObject ? "/page3" : "" }>
               <input 
-                  onClick={() => {handleClick()}}
                   id="plan-btn" 
                   className="next-btn" 
                   type="submit" 
@@ -120,9 +102,9 @@ function Page2(){
             <Link className="go-back-btn" to="/"
               >Go Back
             </Link>
-            </div> 
-        </>
-      )
+        </div> 
+      </>
+    )
 }
 
 export default Page2

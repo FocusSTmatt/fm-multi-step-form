@@ -11,20 +11,6 @@
     src: url(../assets/fonts/Ubuntu-Regular.ttf);
 }
 
-root: {
-    --MarineBlue: hsl(213, 96%, 18%);
-    --PurplishBlue: hsl(243, 100%, 62%);
-    --pastel: hsl(228, 100%, 84%);
-    --LightBlue: hsl(206, 94%, 87%);
-    --StrawberryRed: hsl(354, 84%, 57%);
-
-    --CoolGray: hsl(231, 11%, 63%);
-    --LightGray: hsl(229, 24%, 87%);
-    --Magnolia: hsl(217, 100%, 97%);
-    --Alabaster: hsl(231, 100%, 99%);
-    --White: hsl(0, 0%, 100%);
-}
-
 * {
     font-family: ur;
     margin: 0;
@@ -102,9 +88,11 @@ a {
         display: flex;
         margin-bottom: 1.5em;
     }
+
     .side-bar-text {
         padding-left: 0.7em;
     }
+
     .side-bar-text p:nth-of-type(1) {
         margin: 0;
         padding-bottom: 0.2em;
@@ -113,6 +101,7 @@ a {
         font-size: 13px;
         letter-spacing: 1px;
     }
+
     .side-bar-text p:nth-of-type(2) {
         margin: 0;
         padding: 0;
